@@ -1,0 +1,48 @@
+manifestVersion: 1
+id: sparkyfitness
+category: Health & Fitness
+name: SparkyFitness
+version: "0.15.9.3"
+tagline: Self-hosted fitness and nutrition tracking
+description: >-
+  SparkyFitness is a free, open-source alternative to MyFitnessPal designed for 
+  families. Track calories, macros, workouts, and body measurements with AI-powered 
+  food recognition and barcode scanning. All your health data stays private on your 
+  own server.
+
+
+  Key Features:
+
+  - Track food, calories, and macronutrients
+
+  - AI-powered food recognition from photos
+
+  - Barcode scanning for packaged foods
+
+  - Multi-user support for families
+
+  - Workout and body measurement tracking
+
+  - Custom meal planning
+
+  - Complete data privacy - fully self-hosted
+releaseNotes: >-
+  Full release notes are available at https://github.com/CodeWithCJ/SparkyFitness/releases
+developer: CodeWithCJ
+website: https://github.com/CodeWithCJ/SparkyFitness
+dependencies: []
+repo: https://github.com/CodeWithCJ/SparkyFitness
+support: https://github.com/CodeWithCJ/SparkyFitness/issues
+port: 3004
+gallery:
+  - 1.jpg
+  - 2.jpg
+  - 3.jpg
+path: ""
+defaultUsername: ""
+defaultPassword: ""
+torOnly: false
+permissions:
+  - STORAGE_DOWNLOADS
+submitter: Your Name
+submission: https://github.com/getumbrel/umbrel-apps
