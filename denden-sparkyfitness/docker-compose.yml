@@ -23,7 +23,7 @@ services:
     volumes:
       - ${APP_DATA_DIR}/db:/var/lib/postgresql/data
 
-  server:
+  sparkyfitness-server:
     image: codewithcj/sparkyfitness_server:latest
     restart: on-failure
     depends_on:
@@ -55,7 +55,7 @@ services:
     image: codewithcj/sparkyfitness:latest
     restart: on-failure
     depends_on:
-      server:
+      sparkyfitness-server:
         condition: service_healthy
     healthcheck:
       test: ["CMD-SHELL", "nc -z 127.0.0.1 80 || exit 1"]
