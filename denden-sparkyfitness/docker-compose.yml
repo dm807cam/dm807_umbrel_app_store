@@ -3,11 +3,12 @@ version: "3.7"
 services:
   app_proxy:
     environment:
-      APP_HOST: sparkyfitness_web_1
+      APP_HOST: denden-sparkyfitness_web_1
       APP_PORT: 3004
 
   db:
     image: postgres:15-alpine
+    container_name: denden-sparkyfitness_db_1
     restart: on-failure
     volumes:
       - ${APP_DATA_DIR}/db:/var/lib/postgresql/data
@@ -15,25 +16,33 @@ services:
       POSTGRES_DB: sparky
       POSTGRES_USER: sparkyuser
       POSTGRES_PASSWORD: ${APP_PASSWORD}
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-d", "sparky", "-U", "sparkyuser"]
+      timeout: 45s
+      interval: 10s
+      retries: 10
 
   web:
-    image: codewithcj/sparkyfitness-frontend:latest
-    restart: on-failure
-    depends_on:
-      - db
-      - server
-    environment:
-      SPARKY_FITNESS_FRONTEND_URL: http://${DEVICE_HOSTNAME}.local:3004
-
-  server:
-    image: codewithcj/sparkyfitness-server:latest
+    image: codewithcj/sparkyfitness:latest
+    container_name: denden-sparkyfitness_web_1
     restart: on-failure
     depends_on:
       - db
     volumes:
       - ${APP_DATA_DIR}/uploads:/app/uploads
+      - ${APP_DATA_DIR}/backups:/app/backups
     environment:
-      SPARKY_FITNESS_DB_HOST: db
-      SPARKY_FITNESS_DB_NAME: sparky
+      SPARKY_FITNESS_APP_DB_USER: sparkyuser
+      SPARKY_FITNESS_APP_DB_PASSWORD: ${APP_PASSWORD}
       SPARKY_FITNESS_DB_USER: sparkyuser
       SPARKY_FITNESS_DB_PASSWORD: ${APP_PASSWORD}
+      SPARKY_FITNESS_DB_HOST: db
+      SPARKY_FITNESS_DB_NAME: sparky
+      SPARKY_FITNESS_DB_PORT: 5432
+      SPARKY_FITNESS_SERVER_PORT: 3010
+      NODE_ENV: production
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z 127.0.0.1 80 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
