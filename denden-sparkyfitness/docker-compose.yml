@@ -57,9 +57,16 @@ services:
     depends_on:
       sparkyfitness-server:
         condition: service_healthy
+    environment:
+      VITE_API_BASE_URL: http://sparkyfitness-server:3010
+      API_URL: http://sparkyfitness-server:3010
+      SPARKY_FITNESS_API_ENCRYPTION_KEY: ${APP_SEED}
+      JWT_SECRET: ${APP_SEED}
     healthcheck:
       test: ["CMD-SHELL", "nc -z 127.0.0.1 80 || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 3
       start_period: 90s
+    ports:
+      - "3006:80"
