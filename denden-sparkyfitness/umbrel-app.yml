@@ -44,5 +44,5 @@ defaultPassword: ""
 torOnly: false
 permissions:
   - STORAGE_DOWNLOADS
-submitter: Your Name
+submitter: dm807
 submission: https://github.com/getumbrel/umbrel-apps
