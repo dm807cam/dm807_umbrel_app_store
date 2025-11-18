@@ -35,9 +35,9 @@ repo: https://github.com/CodeWithCJ/SparkyFitness
 support: https://github.com/CodeWithCJ/SparkyFitness/issues
 port: 3004
 gallery:
-  - 1.jpg
-  - 2.jpg
-  - 3.jpg
+  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://i.imgur.com/yyVG0Jb.jpeg
 path: ""
 defaultUsername: ""
 defaultPassword: ""
