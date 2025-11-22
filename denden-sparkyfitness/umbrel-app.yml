@@ -1,8 +1,8 @@
 manifestVersion: 1
-id: denden-sparkyfitness
+id: sparky-fitness
 category: Health & Fitness
-name: SparkyFitness
-version: "0.15.9.3"
+name: Sparky Fitness
+version: "0.0.8"
 tagline: Self-hosted fitness and nutrition tracking
 description: >-
   SparkyFitness is a free, open-source alternative to MyFitnessPal designed for 
@@ -26,8 +26,6 @@ description: >-
   - Custom meal planning
 
   - Complete data privacy - fully self-hosted
-releaseNotes: >-
-  Full release notes are available at https://github.com/CodeWithCJ/SparkyFitness/releases
 developer: CodeWithCJ
 website: https://github.com/CodeWithCJ/SparkyFitness
 dependencies: []
@@ -35,14 +33,9 @@ repo: https://github.com/CodeWithCJ/SparkyFitness
 support: https://github.com/CodeWithCJ/SparkyFitness/issues
 port: 3006
 gallery:
-  - https://i.imgur.com/yyVG0Jb.jpeg
-  - https://i.imgur.com/yyVG0Jb.jpeg
-  - https://i.imgur.com/yyVG0Jb.jpeg
+  - https://raw.githubusercontent.com/CodeWithCJ/SparkyFitness/main/docs/images/dashboard.png
 path: ""
 defaultUsername: ""
 defaultPassword: ""
-torOnly: false
-permissions:
-  - STORAGE_DOWNLOADS
 submitter: dm807
 submission: https://github.com/getumbrel/umbrel-apps
