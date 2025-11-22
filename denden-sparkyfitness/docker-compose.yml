@@ -26,9 +26,9 @@ services:
     environment:
       POSTGRES_DB: sparky
       POSTGRES_USER: sparkyuser
-      POSTGRES_PASSWORD: sparkypwd
+      POSTGRES_PASSWORD: sparky123
     volumes:
-      - ${APP_DATA_DIR}/db:/var/lib/postgresql/data
+      - ./db:/var/lib/postgresql/data
 
   sparkyfitness-server:
     image: codewithcj/sparkyfitness_server:latest
@@ -45,17 +45,19 @@ services:
     environment:
       SPARKY_FITNESS_LOG_LEVEL: INFO
       SPARKY_FITNESS_APP_DB_USER: sparkyuser
-      SPARKY_FITNESS_APP_DB_PASSWORD: sparkypwd
+      SPARKY_FITNESS_APP_DB_PASSWORD: sparky123
       SPARKY_FITNESS_DB_USER: sparkyuser
-      SPARKY_FITNESS_DB_PASSWORD: sparkypwd
+      SPARKY_FITNESS_DB_PASSWORD: sparky123
       SPARKY_FITNESS_DB_HOST: db
       SPARKY_FITNESS_DB_NAME: sparky
       SPARKY_FITNESS_DB_PORT: 5432
       SPARKY_FITNESS_SERVER_PORT: 3010
       NODE_ENV: production
-      SPARKY_FITNESS_API_ENCRYPTION_KEY: ${APP_SEED}
-      JWT_SECRET: ${APP_SEED}
-      SPARKY_FITNESS_FRONTEND_URL: http://${DEVICE_HOSTNAME}:3006
+      # Random 32-character string for encryption
+      SPARKY_FITNESS_API_ENCRYPTION_KEY: z8p7t4x2m9q5v1l6k3j0h4g8f2d5s1a9
+      JWT_SECRET: z8p7t4x2m9q5v1l6k3j0h4g8f2d5s1a9
+      # URL pointing to your Umbrel
+      SPARKY_FITNESS_FRONTEND_URL: http://umbrel.local:3006
       SPARKY_FITNESS_DISABLE_SIGNUP: "false"
 
   sparkyfitness-web:
@@ -67,5 +69,5 @@ services:
     environment:
       VITE_API_BASE_URL: http://sparkyfitness-server:3010
       API_URL: http://sparkyfitness-server:3010
-      SPARKY_FITNESS_API_ENCRYPTION_KEY: ${APP_SEED}
-      JWT_SECRET: ${APP_SEED}
+      SPARKY_FITNESS_API_ENCRYPTION_KEY: z8p7t4x2m9q5v1l6k3j0h4g8f2d5s1a9
+      JWT_SECRET: z8p7t4x2m9q5v1l6k3j0h4g8f2d5s1a9
