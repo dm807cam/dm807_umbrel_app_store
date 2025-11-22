@@ -26,7 +26,7 @@ services:
     environment:
       POSTGRES_DB: sparky
       POSTGRES_USER: sparkyuser
-      POSTGRES_PASSWORD: ${APP_PASSWORD}
+      POSTGRES_PASSWORD: sparkypwd
     volumes:
       - ${APP_DATA_DIR}/db:/var/lib/postgresql/data
 
@@ -45,9 +45,9 @@ services:
     environment:
       SPARKY_FITNESS_LOG_LEVEL: INFO
       SPARKY_FITNESS_APP_DB_USER: sparkyuser
-      SPARKY_FITNESS_APP_DB_PASSWORD: ${APP_PASSWORD}
+      SPARKY_FITNESS_APP_DB_PASSWORD: sparkypwd
       SPARKY_FITNESS_DB_USER: sparkyuser
-      SPARKY_FITNESS_DB_PASSWORD: ${APP_PASSWORD}
+      SPARKY_FITNESS_DB_PASSWORD: sparkypwd
       SPARKY_FITNESS_DB_HOST: db
       SPARKY_FITNESS_DB_NAME: sparky
       SPARKY_FITNESS_DB_PORT: 5432
